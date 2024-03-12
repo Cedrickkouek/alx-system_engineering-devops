@@ -46,6 +46,6 @@ frontend theoflux.tech-https-frontend
     
 backend theoflux.tech-backend
     balance roundrobin
-    server 36775-web-01 3.81.26.20:80 check
-    server 36775-web-02 100.25.163.83:80 check
+    server 393449-web-01 100.25.159.210:80 check
+    server 393449-web-02 100.25.139.218:80 check
 # end of paramters

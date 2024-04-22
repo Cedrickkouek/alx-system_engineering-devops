@@ -1,1 +1,16 @@
-Lets see
+#!/bin/bash
+
+# Find the Gunicorn master process
+GUNICORN_MASTER_PID=$(ps aux | grep 'gunicorn master' | grep -v grep | awk '{print $2}')
+
+# Check if the Gunicorn master process was found
+if [ -z "$GUNICORN_MASTER_PID" ]; then
+    echo "Gunicorn master process not found. Exiting."
+    exit 1
+fi
+
+# Send the HUP signal to the Gunicorn master process
+echo "Sending HUP signal to Gunicorn master process with PID: $GUNICORN_MASTER_PID"
+kill -HUP $GUNICORN_MASTER_PID
+
+echo "Gunicorn reloaded successfully."
